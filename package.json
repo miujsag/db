@@ -1,0 +1,25 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "date-fns": "^1.30.1",
+    "dotenv": "^8.0.0",
+    "mz": "^2.7.0",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "reading-time": "^1.2.0",
+    "sequelize": "^5.8.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
