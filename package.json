@@ -13,7 +13,8 @@
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
     "reading-time": "^1.2.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "logger": "file:../logger"
   },
   "devDependencies": {},
   "scripts": {
