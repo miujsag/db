@@ -1,6 +1,5 @@
 require('dotenv').config()
-const {fs} = require('mz')
-const {init} = require('./lib/db')
+const { init } = require('./lib/db')
 const Site = require('./lib/site/service')
 const Article = require('./lib/article/service')
 const Day = require('./lib/day/service')
@@ -19,4 +18,3 @@ module.exports = {
   Rate,
   Category
 }
-
