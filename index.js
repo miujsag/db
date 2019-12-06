@@ -1,5 +1,6 @@
 require('dotenv').config()
 const { init } = require('./lib/db')
+const { seed } = require('./lib/seed')
 const Site = require('./lib/site/service')
 const Article = require('./lib/article/service')
 const Day = require('./lib/day/service')
@@ -10,6 +11,7 @@ const Category = require('./lib/category/service')
 
 module.exports = {
   init,
+  seed,
   Site,
   Article,
   Day,
