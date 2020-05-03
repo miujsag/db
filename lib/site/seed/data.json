@@ -4,7 +4,7 @@
     "url": "http://nol.hu",
     "feed": "http://nol.hu/rss/mindencsatorna",
     "archive": "http://nol.hu/belfold?page=1",
-    "state": "inactive",
+    "state": "dead",
     "slug": "nepszabadsag",
     "selectors": {
       "archive": {
@@ -54,7 +54,7 @@
     "url": "https://atlatszo.hu",
     "feed": "https://atlatszo.hu/feed/",
     "archive": "https://atlatszo.hu/category/cikkek/adatigenylesek/",
-    "state": "selected",
+    "state": "active",
     "slug": "atlatszo",
     "selectors": {
       "archive": {
@@ -79,7 +79,7 @@
     "url": "https://444.hu",
     "feed": "https://444.hu/feed",
     "archive": "https://444.hu/archivum?page=1",
-    "state": "selected",
+    "state": "active",
     "slug": "444",
     "selectors": {
       "archive": {
@@ -104,7 +104,7 @@
     "url": "https://index.hu",
     "feed": "https://index.hu/24ora/rss/",
     "archive": "https://index.hu/24ora/?word=1&pepe=1&tol=1999-01-01&ig=2018-03-03&s=",
-    "state": "selected",
+    "state": "active",
     "slug": "index",
     "selectors": {
       "archive": {
@@ -154,7 +154,7 @@
     "url": "http://origo.hu",
     "feed": "https://www.origo.hu/contentpartner/rss/origoall/origo.xml",
     "archive": "https://www.origo.hu/hir-archivum/2017/20170301.html",
-    "state": "selected",
+    "state": "active",
     "slug": "origo",
     "selectors": {
       "archive": {
@@ -204,7 +204,7 @@
     "url": "https://hvg.hu",
     "feed": "https://hvg.hu/rss",
     "archive": "https://hvg.hu/vilag",
-    "state": "selected",
+    "state": "active",
     "slug": "hvg",
     "selectors": {
       "archive": {
@@ -254,7 +254,7 @@
     "url": "http://valasz.hu",
     "feed": "http://valasz.hu/rss",
     "archive": "http://valasz.hu/rosta",
-    "state": "inactive",
+    "state": "dead",
     "slug": "valasz",
     "selectors": {
       "archive": {
@@ -304,7 +304,7 @@
     "url": "https://vs.hu",
     "feed": "https://vs.hu/feed",
     "archive": "https://vs.hu/archivum",
-    "state": "inactive",
+    "state": "dead",
     "slug": "vs",
     "selectors": {
       "archive": {
@@ -404,7 +404,7 @@
     "url": "https://magyaridok.hu",
     "feed": "https://magyaridok.hu/feed/",
     "archive": "https://magyaridok.hu/?s=",
-    "state": "inactive",
+    "state": "dead",
     "slug": "magyar-idok",
     "selectors": {
       "archive": {
@@ -429,7 +429,7 @@
     "url": "https://alfahir.hu",
     "feed": "https://alfahir.hu/rss.xml",
     "archive": "https://alfahir.hu/kereso?keresett_szoveg=",
-    "state": "selected",
+    "state": "active",
     "slug": "alfahir",
     "selectors": {
       "archive": {
@@ -454,7 +454,7 @@
     "url": "https://nepszava.hu",
     "feed": "https://nepszava.hu/rss",
     "archive": "https://nepszava.hu/belfold/",
-    "state": "inactive",
+    "state": "active",
     "slug": "nepszava",
     "selectors": {
       "archive": {
@@ -469,9 +469,8 @@
         "title": "#content > .article:first-of-type h1",
         "author": "#content > .article:first-of-type .news .author a",
         "publishedAt": "#content > .article:first-of-type .news .timestamp",
-        "category": "#content > .article:first-of-type .tags a",
-        "content": "#content > .article:first-of-type .left",
-        "site": "nepszava"
+        "category": "#content > .article:first-of-type .tags a:first-of-type",
+        "content": "#content > .article:first-of-type .left"
       }
     }
   },
@@ -530,7 +529,7 @@
     "url": "https://merce.hu/",
     "feed": "https://merce.hu/feed/",
     "archive": "https://merce.hu/search/+/page/",
-    "state": "selected",
+    "state": "active",
     "slug": "merce",
     "selectors": {
       "archive": {
@@ -546,6 +545,156 @@
         "category": ".main-article-header .tag",
         "author": ".meta-data.track-cat .byline",
         "publishedAt": ".meta-time",
+        "content": ".entry-content"
+      }
+    }
+  },
+  {
+    "name": "magyar hang",
+    "url": "https://magyarhang.org",
+    "feed": "https://magyarhang.org/feed",
+    "archive": "https://magyarhang.org/?s=",
+    "state": "active",
+    "slug": "magyar-hang",
+    "selectors": {
+      "archive": {
+        "container": ".td_module_10.td_module_wrap",
+        "title": ".entry-title",
+        "category": ".td-post-category",
+        "author": ".td-post-author-name a",
+        "publishedAt": ".entry-date",
+        "description": ".td-excerpt"
+      },
+      "article": {
+        "title": ".tdb-title-text",
+        "category": ".tdb-entry-category",
+        "author": ".tdb-post-meta .tdb-author-name",
+        "publishedAt": ".tdb-post-meta .entry-date",
+        "content": ".td-post-content"
+      }
+    }
+  },
+  {
+    "name": "válasz online",
+    "url": "https://www.valaszonline.hu",
+    "feed": "https://valaszonline.hu/rss",
+    "archive": "https://www.valaszonline.hu/?s=",
+    "state": "active",
+    "slug": "valasz-online",
+    "selectors": {
+      "archive": {
+        "container": "article",
+        "title": ".entry-title",
+        "category": ".td-post-category",
+        "author": ".td-post-author-name a",
+        "publishedAt": ".entry-date",
+        "description": ".td-excerpt"
+      },
+      "article": {
+        "title": "h1",
+        "category": ".tdb-entry-category",
+        "author": ".author-and-date a",
+        "publishedAt": "",
+        "content": ".entry-content"
+      }
+    }
+  },
+  {
+    "name": "Híradó",
+    "url": "https://hirado.hu",
+    "feed": "https://hirado.hu/hirado.aspx",
+    "archive": "",
+    "state": "active",
+    "slug": "hirado",
+    "selectors": {
+      "archive": {
+        "container": "",
+        "title": ".",
+        "category": "",
+        "author": "",
+        "publishedAt": "",
+        "description": ""
+      },
+      "article": {
+        "title": "h1",
+        "category": ".tdb-entry-category",
+        "author": ".artAuthor",
+        "publishedAt": ".artTime",
+        "content": ".articleContent > :not(.mostRead)"
+      }
+    }
+  },
+  {
+    "name": "ATV",
+    "url": "http://www.atv.hu",
+    "feed": "http://www.atv.hu/all",
+    "archive": "",
+    "state": "active",
+    "slug": "atv",
+    "selectors": {
+      "archive": {
+        "container": "",
+        "title": ".",
+        "category": "",
+        "author": "",
+        "publishedAt": "",
+        "description": ""
+      },
+      "article": {
+        "title": "h2",
+        "category": "h1",
+        "author": ".artAuthor",
+        "publishedAt": ".date",
+        "content": "article > :not(h2, h1, .head-meta-wrapper)"
+      }
+    }
+  },
+  {
+    "name": "MEDIA 1",
+    "url": "https://media1.hu",
+    "feed": "https://media1.hu/feed/",
+    "archive": "",
+    "state": "active",
+    "slug": "media1",
+    "selectors": {
+      "archive": {
+        "container": "",
+        "title": ".",
+        "category": "",
+        "author": "",
+        "publishedAt": "",
+        "description": ""
+      },
+      "article": {
+        "title": "h1",
+        "category": "",
+        "author": ".elementor-post-info__item--type-author",
+        "publishedAt": ".elementor-post-info__item--type-date, .elementor-post-info__item--type-time",
+        "content": ".elementor-widget-theme-post-content"
+      }
+    }
+  },
+  {
+    "name": "Világgazdaság",
+    "url": "https://www.vg.hu",
+    "feed": "https://www.vg.hu/feed/",
+    "archive": "https://www.vg.hu/?s=",
+    "state": "active",
+    "slug": "vilaggazdasag",
+    "selectors": {
+      "archive": {
+        "container": "article",
+        "title": "h2 a",
+        "category": "",
+        "author": "",
+        "publishedAt": ".enews-tax-article-date",
+        "description": ".enews-tax-article-lead"
+      },
+      "article": {
+        "title": "h1",
+        "category": ".enews-article-header-column a:first-of-type",
+        "author": ".enews-article-author",
+        "publishedAt": ".enews-article-dates-main",
         "content": ".entry-content"
       }
     }

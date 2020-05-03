@@ -1,16 +1,16 @@
-require('dotenv').config()
-const { init } = require('./lib/db')
-const { seed } = require('./lib/seed')
-const Site = require('./lib/site/service')
-const Article = require('./lib/article/service')
-const Day = require('./lib/day/service')
-const Weather = require('./lib/weather/service')
-const Bank = require('./lib/bank/service')
-const Rate = require('./lib/rate/service')
-const Category = require('./lib/category/service')
+require("dotenv").config();
+const { seed } = require("./lib/seed");
+const Site = require("./lib/site/service");
+const Article = require("./lib/article/service");
+const Day = require("./lib/day/service");
+const Weather = require("./lib/weather/service");
+const Bank = require("./lib/bank/service");
+const Rate = require("./lib/rate/service");
+const Category = require("./lib/category/service");
+
+/* seed().then(console.log).catch(console.log); */
 
 module.exports = {
-  init,
   seed,
   Site,
   Article,
@@ -18,5 +18,5 @@ module.exports = {
   Weather,
   Bank,
   Rate,
-  Category
-}
+  Category,
+};

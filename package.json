@@ -21,7 +21,12 @@
   "devDependencies": {},
   "scripts": {
     "lint": "standard",
-    "lint-fix": "standard --fix"
+    "lint-fix": "standard --fix",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:migrate:undo": "./node_modules/.bin/sequelize db:migrate:undo",
+    "db:migrate:undo:all": "./node_modules/.bin/sequelize db:migrate:undo:all",
+    "db:seed": "./node_modules/.bin/sequelize db:seed:all",
+    "db:seed:undo:all": "./node_modules/.bin/sequelize db:seed:undo:all"
   },
   "keywords": [],
   "author": "",
