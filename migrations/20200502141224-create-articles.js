@@ -14,7 +14,7 @@ module.exports = {
       url: {
         type: Sequelize.TEXT,
         allowNull: false,
-        unique: "compositeIndex",
+        unique: true,
       },
       description: {
         type: Sequelize.TEXT,

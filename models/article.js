@@ -6,12 +6,20 @@ module.exports = (sequelize, DataTypes) => {
     "Article",
     {
       title: DataTypes.TEXT,
-      url: DataTypes.TEXT,
+      url: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        unique: "compositeIndex",
+      },
       description: DataTypes.TEXT,
       html: DataTypes.TEXT,
       content: DataTypes.TEXT,
       published_at: DataTypes.DATE,
-      extracted: DataTypes.BOOLEAN,
+      extracted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       estimated_read_time: DataTypes.INTEGER,
       author: DataTypes.STRING,
       image: DataTypes.TEXT,
