@@ -29,6 +29,12 @@ module.exports = {
       maximum_temperature: {
         type: Sequelize.FLOAT,
       },
+      icon: {
+        type: Sequelize.STRING,
+      },
+      description: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
