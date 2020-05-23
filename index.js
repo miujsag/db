@@ -8,8 +8,6 @@ const Bank = require("./lib/bank/service");
 const Rate = require("./lib/rate/service");
 const Category = require("./lib/category/service");
 
-/* seed().then(console.log).catch(console.log); */
-
 module.exports = {
   seed,
   Site,

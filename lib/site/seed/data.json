@@ -295,7 +295,7 @@
         "category": "",
         "author": ".articletext span:first-of-type",
         "publishedAt": ".info",
-        "content": ".text"
+        "content": ".articletext"
       }
     }
   },
