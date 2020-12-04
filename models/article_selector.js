@@ -1,19 +1,23 @@
 "use strict";
+
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const article_selectors = sequelize.define(
-    "ArticleSelector",
+  class ArticleSelector extends Model {
+    static associate(models) {}
+  }
+  ArticleSelector.init(
     {
       title: DataTypes.STRING,
       author: DataTypes.STRING,
       published_at: DataTypes.STRING,
       category: DataTypes.STRING,
       content: DataTypes.STRING,
-      site: DataTypes.INTEGER,
     },
-    {}
+    {
+      sequelize,
+      modelName: "ArticleSelector",
+    }
   );
-  article_selectors.associate = function (models) {
-    // associations can be defined here
-  };
-  return article_selectors;
+  return ArticleSelector;
 };

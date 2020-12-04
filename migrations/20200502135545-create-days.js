@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Days", {
+    return queryInterface.createTable("days", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,17 +17,19 @@ module.exports = {
       holiday: {
         type: Sequelize.STRING,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Days");
+    return queryInterface.dropTable("days");
   },
 };

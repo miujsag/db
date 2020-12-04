@@ -10,6 +10,12 @@ module.exports = {
     port: process.env.POSTGRES_PORT,
     dialect: "postgres",
     logging: false,
+    define: {
+      charset: "utf8mb4",
+      collate: "utf8mb4_general_ci",
+      timestamps: true,
+      underscored: true,
+    },
   },
   production: {
     username: process.env.POSTGRES_USER,
@@ -19,5 +25,11 @@ module.exports = {
     port: process.env.POSTGRES_PORT,
     dialect: "postgres",
     logging: false,
+    define: {
+      charset: "utf8mb4",
+      collate: "utf8mb4_general_ci",
+      timestamps: true,
+      underscored: true,
+    },
   },
 };

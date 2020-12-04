@@ -1,21 +1,24 @@
+"use strict";
+
 const fs = require("fs");
 const path = require("path");
-const basename = path.basename(__filename);
 const Sequelize = require("sequelize");
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../config/config.js")[env];
 const db = {};
 
-const sequelize = new Sequelize(
-  process.env.POSTGRES_DB,
-  process.env.POSTGRES_USER,
-  process.env.POSTGRES_PASSWORD,
-  {
-    host: process.env.POSTGRES_HOST,
-    port: process.env.POSTGRES_PORT,
-    dialect: "postgres",
-    timezone: "Europe/Budapest",
-    logging: false,
-  }
-);
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -24,7 +27,10 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach((file) => {
-    const model = sequelize["import"](path.join(__dirname, file));
+    const model = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize.DataTypes
+    );
     db[model.name] = model;
   });
 
@@ -35,31 +41,6 @@ Object.keys(db).forEach((modelName) => {
 });
 
 db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
 module.exports = db;
-/* init: async (opts) => {
-    await sequelize.authenticate();
-    require("../models/sites")(sequelize, DataTypes);
-    require("../models/article_selectors")(sequelize, DataTypes);
-    require("../models/categories")(sequelize, DataTypes);
-    require("../models/articles")(sequelize, DataTypes);
-    require("../models/days")(sequelize, DataTypes);
-    require("../models/banks")(sequelize, DataTypes);
-    require("../models/rates")(sequelize, DataTypes);
-    require("../models/weather")(sequelize, DataTypes);
-    await sequelize.sync(opts);
-    return sequelize;
-  }, */
-
-/* init () {
-    require("../models/sites")(sequelize, DataTypes);
-    require("../models/article_selectors")(sequelize, DataTypes);
-    require("../models/categories")(sequelize, DataTypes);
-    require("../models/articles")(sequelize, DataTypes);
-    require("../models/days")(sequelize, DataTypes);
-    require("../models/banks")(sequelize, DataTypes);
-    require("../models/rates")(sequelize, DataTypes);
-    require("../models/weather")(sequelize, DataTypes);
-  }
-
-  getInstance: () => sequelize, */

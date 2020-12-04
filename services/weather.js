@@ -1,4 +1,4 @@
-const { Weather } = require("../../models");
+const { Weather } = require("../models");
 
 function lists() {
   return Weather.findAll();

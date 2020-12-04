@@ -1,4 +1,4 @@
-const { Bank } = require("../../models");
+const { Bank } = require("../models");
 
 function lists() {
   return Bank.findAll();

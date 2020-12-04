@@ -1,4 +1,4 @@
-const { Category } = require("../../models");
+const { Category } = require("../models");
 
 function lists() {
   return Category.findAll();

@@ -1,16 +1,11 @@
-const { Site, ArticleSelector } = require("../../models");
+const { Site, ArticleSelector } = require("../models");
 
 function lists(state = ["active"]) {
   return Site.findAll({
     where: {
       state,
     },
-    include: [
-      {
-        model: ArticleSelector,
-        as: "article_selector",
-      },
-    ],
+    include: [ArticleSelector],
   });
 }
 
@@ -19,12 +14,7 @@ function get(id) {
     where: {
       id,
     },
-    include: [
-      {
-        model: ArticleSelector,
-        as: "article_selector",
-      },
-    ],
+    include: [ArticleSelector],
   });
 }
 

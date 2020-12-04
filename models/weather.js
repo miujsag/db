@@ -1,7 +1,12 @@
 "use strict";
+
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const Weather = sequelize.define(
-    "Weather",
+  class Weather extends Model {
+    static associate(models) {}
+  }
+  Weather.init(
     {
       city: DataTypes.STRING,
       openweather_id: DataTypes.INTEGER,
@@ -13,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       icon: DataTypes.STRING,
       description: DataTypes.STRING,
     },
-    {}
+    {
+      sequelize,
+      modelName: "Weather",
+    }
   );
-  Weather.associate = function (models) {
-    // associations can be defined here
-  };
   return Weather;
 };

@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Banks", {
+    return queryInterface.createTable("banks", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,17 +17,19 @@ module.exports = {
       description: {
         type: Sequelize.TEXT,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Banks");
+    return queryInterface.dropTable("banks");
   },
 };

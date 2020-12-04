@@ -1,16 +1,20 @@
 "use strict";
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const days = sequelize.define(
-    "Day",
+  class Day extends Model {
+    static associate(models) {}
+  }
+  Day.init(
     {
       date: DataTypes.STRING,
       name: DataTypes.STRING,
       holiday: DataTypes.STRING,
     },
-    {}
+    {
+      sequelize,
+      modelName: "Day",
+    }
   );
-  days.associate = function (models) {
-    // associations can be defined here
-  };
-  return days;
+  return Day;
 };

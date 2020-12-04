@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Article, Category, Site } = require("../../models");
+const { Article, Category, Site } = require("../models");
 const { createLogMessage } = require("logger");
 
 function lists(siteIds, categoryIds, until, limit) {

@@ -1,17 +1,21 @@
 "use strict";
+
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const rates = sequelize.define(
-    "Rate",
+  class Rate extends Model {
+    static associate(models) {}
+  }
+  Rate.init(
     {
       currency: DataTypes.STRING,
       value: DataTypes.FLOAT,
       did_grow: DataTypes.BOOLEAN,
-      bank: DataTypes.INTEGER,
     },
-    {}
+    {
+      sequelize,
+      modelName: "Rate",
+    }
   );
-  rates.associate = function (models) {
-    // associations can be defined here
-  };
-  return rates;
+  return Rate;
 };

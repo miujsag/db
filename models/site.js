@@ -1,7 +1,16 @@
 "use strict";
+
+const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const sites = sequelize.define(
-    "Site",
+  class Site extends Model {
+    static associate({ Article, ArticleSelector, Site }) {
+      Site.hasOne(ArticleSelector);
+      Site.hasMany(Article);
+      Article.belongsTo(Site);
+    }
+  }
+  Site.init(
     {
       name: DataTypes.STRING,
       slug: DataTypes.STRING,
@@ -12,19 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       feed: DataTypes.STRING,
     },
-    {}
+    {
+      sequelize,
+      modelName: "Site",
+    }
   );
-  sites.associate = function ({ Article, ArticleSelector, Site }) {
-    Article.belongsTo(Site, {
-      foreignKey: "site",
-      targetKey: "id",
-    });
-
-    Site.hasOne(ArticleSelector, {
-      as: "article_selector",
-      foreignKey: "site",
-      sourceKey: "id",
-    });
-  };
-  return sites;
+  return Site;
 };

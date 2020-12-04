@@ -23,8 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       estimated_read_time: DataTypes.INTEGER,
       author: DataTypes.STRING,
       image: DataTypes.TEXT,
-      category: DataTypes.INTEGER,
-      site: DataTypes.INTEGER,
     },
     {
       hooks: {

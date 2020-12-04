@@ -1,5 +1,5 @@
 const { format } = require("date-fns");
-const { Day } = require("../../models");
+const { Day } = require("../models");
 
 function today() {
   return Day.findOne({ where: { date: format(new Date(), "MM/DD") } });

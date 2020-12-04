@@ -1,10 +1,10 @@
 const { Op } = require("sequelize");
-const { Rate } = require("../../models");
+const { Rate } = require("../models");
 
 function lists(bankId, currencies = ["EUR", "GBP"]) {
   return Rate.findAll({
     where: {
-      bank: bankId,
+      bank_id: bankId,
       currency: {
         [Op.in]: currencies,
       },
@@ -15,9 +15,9 @@ function lists(bankId, currencies = ["EUR", "GBP"]) {
 function create(params, bank) {
   return Rate.create(params)
     .then(function (rate) {
-      rate.bank = bank.id;
+      rate.setBank(bank);
 
-      return rate.save();
+      return rate;
     })
     .catch((error) => error);
 }

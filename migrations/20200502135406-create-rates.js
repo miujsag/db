@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Rates", {
+    return queryInterface.createTable("rates", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,24 +17,22 @@ module.exports = {
       did_grow: {
         type: Sequelize.BOOLEAN,
       },
-      bank: {
+      bank_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Banks",
-          key: "id",
-        },
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Rates");
+    return queryInterface.dropTable("rates");
   },
 };

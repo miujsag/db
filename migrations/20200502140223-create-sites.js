@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Sites", {
+    return queryInterface.createTable("sites", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,17 +28,19 @@ module.exports = {
         type: Sequelize.ENUM,
         values: ["active", "inactive", "dead"],
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Sites");
+    return queryInterface.dropTable("sites");
   },
 };
