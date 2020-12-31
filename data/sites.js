@@ -704,4 +704,29 @@ module.exports = [
       },
     },
   },
+  {
+    name: "Telex",
+    url: "https://www.telex.hu",
+    feed: "https://telex.hu/rss",
+    archive: "https://telex.hu/legfrissebb",
+    state: "active",
+    slug: "telex",
+    selectors: {
+      archive: {
+        container: "article",
+        title: "h2 a",
+        category: "",
+        author: "",
+        published_at: ".enews-tax-article-date",
+        description: ".enews-tax-article-lead",
+      },
+      article: {
+        title: ".article_title",
+        category: ".article_tags",
+        author: ".article_date a",
+        published_at: ".article_date span",
+        content: ".article-html-content",
+      },
+    },
+  },
 ];
