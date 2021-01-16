@@ -6,6 +6,7 @@ const Weather = require("./services/weather");
 const Bank = require("./services/bank");
 const Rate = require("./services/rate");
 const Category = require("./services/category");
+const Keyword = require("./services/keyword");
 
 module.exports = {
   Site,
@@ -15,6 +16,7 @@ module.exports = {
   Bank,
   Rate,
   Category,
+  Keyword,
 };
 
 function fin() {
