@@ -122,8 +122,7 @@ module.exports = [
         category: ".cikk-cimkek li:first-of-type",
         author: ".szerzo a",
         published_at: ".datum span:first-of-type",
-        content:
-          ".cikk-torzs > :not(.m-automatic-file-snippet, .nm_mini__wrapper, .nm_widget__wrapper)",
+        content: ".cikk-torzs",
       },
     },
   },
